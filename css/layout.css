@@ -1,0 +1,59 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 0 1rem;
+  height: 100dvh;
+}
+
+header.header {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+header.header h1 {
+  font-size: clamp(1.5rem, calc(1.5rem+2vw), 3rem);
+}
+.contents {
+  margin-top: 1rem;
+  position: relative;
+}
+.contents #botoes {
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.contents #botoes .visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.copied-message {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000cc;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  animation: fadeOut 2s ease forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

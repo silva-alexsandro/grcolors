@@ -3,48 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./src/assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
     <title>Generator Color</title>
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <script defer src="./main.js"></script>
   </head>
   <body>
-    <main>
-      <section id="hero">
+    <main class="container">
+      <header class="header">
         <h1>Gerador de Cores</h1>
-        <p>
-          Gere cores aleatórias com apenas um clique. Adicione novos cards,
-          copie os códigos e inspire-se em novas combinações.
-        </p>
-      </section>
-
-      <section>
+      </header>
+      <section class="contents" aria-labelledby="titulo-principal">
         <ul
           id="js-cards"
           class="cards"
           aria-label="Lista de cores geradas"
         ></ul>
-      </section>
 
-      <section class="buttons-actions">
-        <button
-          id="js-btn-generator-color"
-          class="btn btn-square"
-          type="button"
-          aria-label="Gerar cores"
-          title="Gerar cores"
-        >
-          <span aria-hidden="true">gerar cores</span>
-        </button>
-        <button
-          id="js-btn-new-card"
-          class="btn"
-          type="button"
-          title="Adicionar novo card de cor"
-          aria-label="Adicionar novo card de cor"
-        >
-          <span aria-hidden="true">+</span>
-        </button>
+        <section
+          id="js-color-variations"
+          class="color-variations"
+          aria-label="Variações da cor selecionada"
+        ></section>
+
+        <div id="botoes" role="group" aria-label="Ações">
+          <button
+            id="js-btn-generator-color"
+            class="btn btn-square"
+            type="button"
+            aria-label="Gerar cores"
+            title="Gerar cores"
+          >
+            <span aria-hidden="true">gerar cores</span>
+          </button>
+          <div id="feedback" class="visually-hidden" aria-live="polite"></div>
+          <button
+            id="js-btn-new-card"
+            class="btn"
+            type="button"
+            title="Adicionar novo card de cor"
+            aria-label="Adicionar novo card de cor"
+          >
+            <span aria-hidden="true">+</span>
+          </button>
+        </div>
       </section>
+      <footer>?</footer>
     </main>
   </body>
 </html>

@@ -1,0 +1,28 @@
+button#js-btn-generator-color {
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-transform: capitalize;
+}
+button#js-btn-new-card {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+button#js-btn-new-card:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+button.btn {
+  font-size: 1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #6a11cb;
+  transition: all 0.3s;
+}
+button.btn:hover {
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+}
