@@ -1,5 +1,7 @@
 :root {
   font-size: 62.5%;
+  --color-border: rgba(255, 89, 0, 0.3);
+  --color-accent: rgba(255, 89, 0, 1);
   --color-primary: #596869;
   --color-secondary: #dde0e1;
   --color-white: #fff;

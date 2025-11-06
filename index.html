@@ -12,7 +12,17 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
     <!-- Favicon -->
     <link
       rel="shortcut icon"
@@ -24,7 +34,7 @@
     <link rel="stylesheet" href="./src/css/main.css" />
 
     <!-- Script -->
-    <script defer src="./src/js/main.js"></script>
+    <script type="module" defer src="./src/js/main.js"></script>
   </head>
   <body>
     <div class="container">
@@ -47,16 +57,16 @@
         </a>
       </header>
 
-      <div id="botoes" class="toolbar" role="group" aria-label="Ações">
-        <div class="act">
+      <nav id="botoes" class="toolbar" role="group" aria-label="Ações">
+        <div class="toolbar__group">
           <button
             id="js-btn-generator-color"
             class="btn btn-square"
             type="button"
-            aria-label="Gerar cores"
-            title="Gerar cores"
+            aria-label="Modificar as cores"
+            title="Modificar as cores"
           >
-            <span aria-hidden="true">Gerar cores</span>
+            <span aria-hidden="true">Modificar as cores</span>
           </button>
           <div id="feedback" class="visually-hidden" aria-live="polite"></div>
           <button
@@ -66,10 +76,53 @@
             title="Adicionar novo card de cor"
             aria-label="Adicionar novo card de cor"
           >
-            <span aria-hidden="true">+</span>
+            <span aria-hidden="true"><i class="ph ph-plus"></i></span>
           </button>
         </div>
-      </div>
+        <div class="toolbar__group">
+          <button
+            id="js-undo"
+            title="Desfazer"
+            aria-label="Desfazer"
+            class="btn"
+            disabled
+          >
+            <i class="ph ph-arrow-bend-up-left"></i>
+          </button>
+          <button
+            id="js-redo"
+            title="Refazer"
+            aria-label="Refazer"
+            class="btn"
+            disabled
+          >
+            <i class="ph ph-arrow-bend-up-right"></i>
+          </button>
+          <!-- <button
+            title="Configurações"
+            aria-label="Abrir configurações"
+            class="btn"
+          >
+            <i class="ph ph-gear"></i>
+            <span>Configurações</span>
+          </button>
+          <button
+            title="Exportar"
+            aria-label="Exportar palleta de cores"
+            class="btn"
+          >
+            <i class="ph ph-export"></i> <span>Exportar</span>
+          </button>
+          <button
+            title="Modificar Tema"
+            aria-label="Modificar tema escuro"
+            class="btn"
+          >
+            <i class="ph ph-export"></i>
+          </button> -->
+        </div>
+      </nav>
+
       <main>
         <section>
           <ul
