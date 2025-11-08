@@ -34,27 +34,12 @@
     <link rel="stylesheet" href="./src/css/main.css" />
 
     <!-- Script -->
-    <script type="module" defer src="./src/js/main.js"></script>
+    <script type="module" defer src="./src/js/app/main.js"></script>
   </head>
   <body>
     <div class="container">
       <header class="header">
         <h1>GRColors</h1>
-        <a
-          href="https://www.linkedin.com/in/dasilva-alexsandro/"
-          class="profile"
-          aria-label="Perfil do desenvolvedor Alexsandro Silva no LinkedIn"
-          target="_blank"
-          title="LinkedIn do desenvolvedor Alexsandro Silva"
-          rel="noopener noreferrer"
-        >
-          <div class="avatar">
-            <img
-              src="https://avatars.githubusercontent.com/u/149261935?v=4"
-              alt="Foto do desenvolvedor Alexsandro Silva"
-            />
-          </div>
-        </a>
       </header>
 
       <nav id="botoes" class="toolbar" role="group" aria-label="Ações">
@@ -89,6 +74,7 @@
           >
             <i class="ph ph-arrow-bend-up-left"></i>
           </button>
+
           <button
             id="js-redo"
             title="Refazer"
@@ -98,15 +84,16 @@
           >
             <i class="ph ph-arrow-bend-up-right"></i>
           </button>
+
           <button
             title="Informação"
             aria-label="Abrir Informação"
             class="btn"
             id="js-info"
-            disabled
           >
             <i class="ph ph-info"></i>
           </button>
+
           <button
             title="Configurações"
             aria-label="Abrir configurações"
@@ -136,6 +123,31 @@
             class="palette-container"
             aria-label="Lista de cores geradas"
           ></ul>
+          <article class="block-information">
+            <h3>Gerador de cores aleatório</h3>
+            <p>
+              Trata-se de uma aplicação web para gerar códigos de cores de fácil utilização.
+            </p>
+            <p>
+              O layout e algumas funcionalidades básicas são inspirados no site
+              <a href="https://coolors.co/" style="text-decoration: underline"
+                >Coolors</a
+              >.
+            </p>
+            <p>
+              Desenvolvedor responsável pelo código é o
+              <a
+                href="https://www.linkedin.com/in/dasilva-alexsandro/"
+                aria-label="Perfil do desenvolvedor Alexsandro Silva no LinkedIn"
+                target="_blank"
+                style="text-decoration: underline"
+                title="LinkedIn do desenvolvedor Alexsandro Silva"
+                rel="noopener noreferrer"
+              >
+                Alexsandro Silva.
+              </a>
+            </p>
+          </article>
         </section>
       </main>
     </div>
@@ -162,7 +174,7 @@
               <select name="theme" id="theme">
                 <option value="claro">Claro</option>
                 <option value="escuro">Escuro</option>
-                <option value="sistema">Usar tema do sistema</option>
+                <option value="sistema">OS padrão</option>
               </select>
             </div>
           </fieldset>

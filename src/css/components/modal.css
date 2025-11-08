@@ -12,7 +12,7 @@
 .modal__contents {
   margin: 10% auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  width: min(100%, 300px);
+  width: min(90%,350px);
   padding: 2rem;
   border-radius: 8px;
   background-color: var(--color-white);
