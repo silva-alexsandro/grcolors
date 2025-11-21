@@ -1,7 +1,5 @@
 @import './reset.css';
 
-@import "./components/profile.css";
-@import "./components/avatar.css";
 @import "./components/buttons.css";
 @import "./components/modal.css";
 

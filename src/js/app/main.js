@@ -1,7 +1,7 @@
-import { btnUndo, btnRedo } from "./domElements.js";
+import { btnUndo, btnRedo, palette } from "./domElements.js";
 import { setupEvents } from "./events.js";
 import { createHistoryManager } from "../core/historyManager.js";
-import { restorePaletteState } from "../domain/cardManager.js";
+import { createColorColumn, restorePaletteState } from "../domain/cardManager.js";
 import { applyTheme } from "../ui/views.js";
 
 export const history = createHistoryManager([], {
@@ -15,5 +15,8 @@ export const history = createHistoryManager([], {
 document.addEventListener("DOMContentLoaded", () => {
   setupEvents();
   applyTheme("sistema");
+  while (palette.children.length < 3) {
+    createColorColumn();
+  }
   document.getElementById("js-btn-new-card").focus();
 });

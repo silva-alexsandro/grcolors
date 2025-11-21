@@ -1,18 +1,25 @@
 import { palette } from "../app/domElements.js";
 import { history } from "../app/main.js";
 
-import { generateRandomHex } from "../core/colorUtils.js";
-// import { showColorOKLCH } from "../variations.js";
+import { generateRandomHex, getBestTextColor } from "../core/colorUtils.js";
 
 function createElementLi(hex) {
   const li = document.createElement("li");
+
   li.classList.add("color-column", "shadow");
   li.setAttribute("tabindex", "0");
   li.setAttribute("aria-label", `Cor hexadecimal ${hex}`);
+  li.dataset.locked = "false";
+  const textColor = getBestTextColor(hex);
 
+  const spanHex = document.createElement("span");
+  spanHex.classList.add("text");
+  spanHex.setAttribute("aria-live", `polite`);
+  spanHex.style.color = textColor;
+  spanHex.textContent = hex;
+
+  li.appendChild(spanHex);
   li.style.backgroundColor = hex;
-
-  li.innerHTML = `<span class="text" aria-live="polite">${hex}</span>`;
 
   li.addEventListener("click", () => copyColor(hex, li));
 
@@ -25,7 +32,7 @@ function createElementLi(hex) {
   return li;
 }
 
-export function createCard() {
+export function createColorColumn() {
   if (palette.children.length >= 15) return;
 
   const randomHex = generateRandomHex();

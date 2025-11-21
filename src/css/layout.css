@@ -3,8 +3,6 @@
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #000000cc;
-  color: #fff;
   font-size: 0.8rem;
   padding: 4px 8px;
   border-radius: 4px;
@@ -43,7 +41,6 @@ header.header {
   justify-content: space-between;
 }
 header.header h1 {
-  color: var(--color-primary);
   font-size: clamp(2rem, calc(1.8rem + 2vw), 4.8rem);
 }
 
@@ -143,9 +140,4 @@ section {
     flex-direction: row;
     position: relative;
   }
-}
-
-body.dark header.header h1,
-body.dark .btn {
-  color: var(--color-white);
 }

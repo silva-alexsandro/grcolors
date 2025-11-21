@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generator Color</title>
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,12 +28,8 @@
       href="./src/assets/favicon/favicon.ico"
       type="image/x-icon"
     />
-
     <!-- CSS -->
     <link rel="stylesheet" href="./src/css/main.css" />
-
-    <!-- Script -->
-    <script type="module" defer src="./src/js/app/main.js"></script>
   </head>
   <body>
     <div class="container">
@@ -46,7 +41,7 @@
         <div class="toolbar__group">
           <button
             id="js-btn-generator-color"
-            class="btn btn-square"
+            class="btn"
             type="button"
             aria-label="Modificar as cores"
             title="Modificar as cores"
@@ -111,8 +106,6 @@
           >
             <i class="ph ph-export"></i> <span>Exportar</span>
           </button>
-
-          <!---->
         </div>
       </nav>
 
@@ -126,7 +119,8 @@
           <article class="block-information">
             <h3>Gerador de cores aleatório</h3>
             <p>
-              Trata-se de uma aplicação web para gerar códigos de cores de fácil utilização.
+              Trata-se de uma aplicação web para gerar códigos de cores de fácil
+              utilização.
             </p>
             <p>
               O layout e algumas funcionalidades básicas são inspirados no site
@@ -192,5 +186,6 @@
         </form>
       </div>
     </div>
+    <script defer type="module" src="./src/js/app/main.js"></script>
   </body>
 </html>

@@ -1,27 +1,97 @@
+// -----------------------------
+// Gera uma cor aleatória em HEX
+// -----------------------------
 export function generateRandomHex() {
   return `#${Math.floor(Math.random() * 0xffffff)
     .toString(16)
     .padStart(6, "0")}`;
 }
 
-export function hexToRgb(colorHex) {
-  colorHex = colorHex.replace("#", "");
+// -----------------------------
+// Converte HEX → RGB
+// Aceita "#abc" ou "#aabbcc"
+// -----------------------------
+export function hexToRgb(hex) {
+  hex = hex.replace("#", "");
 
-  // Ex: '3fc' → '33ffcc'
-  if (colorHex.length === 3)
-    colorHex = colorHex
+  if (hex.length === 3) {
+    hex = hex
       .split("")
-      .map((hex) => hex + hex)
+      .map((c) => c + c)
       .join("");
+  }
 
-  const r = parseInt(colorHex.substring(0, 2), 16);
-  const g = parseInt(colorHex.substring(2, 4), 16);
-  const b = parseInt(colorHex.substring(4, 6), 16);
-
-  return [r, g, b];
+  return [
+    parseInt(hex.slice(0, 2), 16),
+    parseInt(hex.slice(2, 4), 16),
+    parseInt(hex.slice(4, 6), 16),
+  ];
 }
 
+// -----------------------------
+// Converte um canal sRGB (0–255)
+// para linear RGB (WCAG)
+// -----------------------------
+function toLinear(v) {
+  v /= 255;
+  return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+}
 
+// -----------------------------
+// Luminância relativa (WCAG)
+// Fórmula oficial
+// -----------------------------
+export function getLuminance(hex) {
+  const [r, g, b] = hexToRgb(hex);
+
+  const R = toLinear(r);
+  const G = toLinear(g);
+  const B = toLinear(b);
+
+  return 0.2126 * R + 0.7152 * G + 0.0722 * B;
+}
+
+// -----------------------------
+// Razão de contraste entre duas cores
+// Retorna um valor entre 1 e 21
+// -----------------------------
+export function contrastRatio(colorA, colorB) {
+  const L1 = getLuminance(colorA);
+  const L2 = getLuminance(colorB);
+
+  const light = Math.max(L1, L2);
+  const dark = Math.min(L1, L2);
+
+  return (light + 0.05) / (dark + 0.05);
+}
+
+// -----------------------------
+// Verifica AA / AAA
+// Para texto normal (não negrito)
+// -----------------------------
+export function getContrastLevel(bg, fg) {
+  const ratio = contrastRatio(bg, fg);
+
+  if (ratio >= 7) return "AAA";
+  if (ratio >= 4.5) return "AA";
+  return "FAIL";
+}
+
+// -----------------------------
+// Decide texto preto ou branco
+// usando contraste REAL (WCAG)
+// -----------------------------
+export function getBestTextColor(bg) {
+  const white = getContrastLevel(bg, "#FFFFFF");
+  const black = getContrastLevel(bg, "#000000");
+
+  // AAA > AA > FAIL
+  const priority = { AAA: 3, AA: 2, FAIL: 1 };
+
+  return priority[black] >= priority[white] ? "#000000" : "#FFFFFF";
+}
+
+/*
 
 export function rgbToOklch(r, g, b) {
   try {
@@ -57,3 +127,4 @@ export function rgbToOklchOld(r, g, b) {
   const Hdeg = ((Math.atan2(b2, a) * 180) / Math.PI + 360) % 360;
   return [L, C, Hdeg];
 }
+*/

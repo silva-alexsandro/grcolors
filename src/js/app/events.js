@@ -6,11 +6,11 @@ import {
   btnConfig,
   form,
   btnInfo,
-  blockInfo
+  blockInfo,
 } from "./domElements.js";
-import { history } from "./main.js";
-import { createCard, generatePalette } from "../domain/cardManager.js";
+import { createColorColumn, generatePalette } from "../domain/cardManager.js";
 import { handleModal } from "../ui/handleModal.js";
+import { history } from "./main.js";
 import { toggleFullscreen, togglePaletteGap, applyTheme } from "../ui/views.js";
 
 function getInputValue(input) {
@@ -18,10 +18,8 @@ function getInputValue(input) {
 }
 
 export function setupEvents() {
-  // Botão para cores
-  newCard.addEventListener("click", createCard);
+  newCard.addEventListener("click", createColorColumn);
   btnGeneratorColors.addEventListener("click", generatePalette);
-
   window.addEventListener("keydown", (e) => {
     if (e.key === " ") {
       e.preventDefault();
@@ -29,15 +27,15 @@ export function setupEvents() {
     }
   });
 
-  //informationa
-  btnInfo.addEventListener("click", () => {
-    console.log('info')
-    blockInfo.classList.toggle("active");
-  });
-
   // Botao para desfazer
   btnUndo.addEventListener("click", () => history.undo());
   btnRedo.addEventListener("click", () => history.redo());
+
+  //informationa
+  btnInfo.addEventListener("click", () => {
+    console.log("info");
+    blockInfo.classList.toggle("active");
+  });
 
   // Modal e Forms de configuração
   btnConfig.addEventListener("click", handleModal);
