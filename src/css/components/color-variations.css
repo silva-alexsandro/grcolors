@@ -1,19 +1,17 @@
 .color-variations {
   display: grid;
-  grid-template-columns: repeat(10, 50px);
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   gap: 8px;
-  overflow-x: auto; /* permite scroll horizontal em telas pequenas */
   padding: 8px;
-  height: 70px;
 }
 
-/* Força o grid a se expandir e ocupar todo o espaço disponível em telas maiores */
+/* Desktop */
 @media (min-width: 768px) {
   .color-variations {
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-    overflow-x: visible; /* remove o scroll quando cabe tudo */
+    grid-template-columns: repeat(10, 50px);
   }
 }
+
 
 /* Cada card */
 .color-swatch {

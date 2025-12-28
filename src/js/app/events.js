@@ -33,9 +33,9 @@ export function setupEvents() {
 
   //informationa
   btnInfo.addEventListener("click", () => {
-    console.log("info");
-    blockInfo.classList.toggle("active");
-  });
+  blockInfo.classList.toggle("active");
+  document.body.classList.toggle("info-open");
+});
 
   // Modal e Forms de configuração
   btnConfig.addEventListener("click", handleModal);

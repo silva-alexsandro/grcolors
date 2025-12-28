@@ -95,6 +95,20 @@ section {
 .color-column button.btn i {
   font-size: 1.2rem;
 }
+@media (max-width: 767px) {
+  body.info-open .palette-container {
+    align-items: center;
+    /* padding: 1rem 0; */
+  }
+
+  body.info-open .color-column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* gap: 0.8rem; */
+  }
+}
 
 .block-information {
   border-left: 1px solid var(--color-border);
