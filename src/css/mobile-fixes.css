@@ -1,0 +1,66 @@
+/* =========================================
+   MOBILE FIXES — REMOVE ZOOM AUTOMÁTICO
+   ========================================= */
+
+/* 1️⃣ Corrige viewport dinâmica (Safari / Chrome mobile) */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2️⃣ Remove conflito 100vh / 100dvh */
+.container {
+  min-height: 100dvh !important;
+  height: auto !important;
+}
+
+/* 3️⃣ Evita flex estourando largura no mobile */
+section {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 4️⃣ Painel de informação vira overlay no mobile */
+@media (max-width: 767px) {
+  .block-information {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    max-width: 320px;
+    width: 100%;
+    background: var(--color-white);
+    z-index: 50;
+    overflow-y: auto;
+  }
+}
+
+/* 5️⃣ Remove efeitos de scale em dispositivos touch */
+@media (hover: none) {
+  .card:hover,
+  .color-swatch:hover,
+  .btn:hover {
+    transform: none !important;
+  }
+}
+
+/* 6️⃣ Evita zoom automático em inputs (iOS) */
+input,
+select,
+button,
+textarea {
+  font-size: 16px;
+}
+
+/* 7️⃣ Garante que grids não forcem largura maior que a tela */
+.palette-container,
+.cards,
+.color-variations {
+  max-width: 100%;
+}
+
+/* 8️⃣ Previne qualquer elemento invisível de causar overflow */
+* {
+  max-width: 100%;
+}
